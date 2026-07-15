@@ -34,6 +34,31 @@ Once the paths are configured, run the script from a terminal using:
 powershell.exe -ExecutionPolicy Bypass -File "C:\Path\To\the\script.ps1"
 ```
 
+## Customizing options
+
+### Backup drive
+
+By default, backups are stored on the `C:` drive. You can change the destination drive or path by modifying the `$backupDrive` variable.
+
+Example:
+
+```powershell
+$backupDrive = "C:\"
+```
+The `GameSaveBackups` folder will be created automatically in the selected location if it does not already exist.
+
+### Backup rotation
+
+The maximum number of backups to keep is controlled by the `$maxBackups` variable.
+
+Example:
+
+```powershell
+$maxBackups = 5
+```
+
+The script will automatically rotate backups by keeping only the `X` most recent backups and removing older ones.
+
 ## Automation
 
 For more convenience, the script can be automated using Windows Task Scheduler. You can configure it to run automatically at startup or on a schedule to keep your saves backed up regularly.
